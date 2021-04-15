@@ -1,0 +1,6 @@
+framework module ModuloDetalhes {
+  umbrella header "ModuloDetalhes-umbrella.h"
+
+  export *
+  module * { export * }
+}
