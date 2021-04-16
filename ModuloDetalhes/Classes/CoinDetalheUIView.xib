@@ -24,16 +24,16 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9i6-yC-B9C">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pA-LZ-OL5">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pA-LZ-OL5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="83.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WDh-UX-ZbW">
                                             <rect key="frame" x="0.0" y="83.5" width="375" height="83.5"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmO-RF-yFh">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ valor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmO-RF-yFh">
                                             <rect key="frame" x="0.0" y="167" width="375" height="83"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
@@ -41,7 +41,6 @@
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2Eb-ap-HFh">
                                             <rect key="frame" x="0.0" y="250" width="375" height="83.5"/>
-                                            <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </stackView>
                                     </subviews>
                                 </stackView>
@@ -61,24 +60,67 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="volumes negociados" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9DF-0b-OhK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="66.5"/>
+                                            <rect key="frame" x="20" y="8" width="335" height="63.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3F-u3-KfA">
-                                            <rect key="frame" x="0.0" y="66.5" width="375" height="67"/>
+                                            <rect key="frame" x="20" y="71.5" width="335" height="63.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Ultima hora" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uxf-kt-kqu">
+                                                    <rect key="frame" x="0.0" y="0.0" width="244.5" height="63.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ valor hora" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3r-yv-RVL">
+                                                    <rect key="frame" x="244.5" y="0.0" width="90.5" height="63.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzX-Qg-9Fo">
-                                            <rect key="frame" x="0.0" y="133.5" width="375" height="66.5"/>
+                                            <rect key="frame" x="20" y="135" width="335" height="63.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Ultimo mês" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86o-hd-cgG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="246.5" height="63.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ valor mês" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfe-dD-xby">
+                                                    <rect key="frame" x="246.5" y="0.0" width="88.5" height="63.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7fb-ZE-lCP">
-                                            <rect key="frame" x="0.0" y="200" width="375" height="67"/>
+                                            <rect key="frame" x="20" y="198.5" width="335" height="63.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Ultimo ano" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGZ-Z9-fvs">
+                                                    <rect key="frame" x="0.0" y="0.0" width="251" height="63.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ valor ano" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkW-pb-GhP">
+                                                    <rect key="frame" x="251" y="0.0" width="84" height="63.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhH-NE-37i">
-                                            <rect key="frame" x="0.0" y="267" width="375" height="66.5"/>
+                                            <rect key="frame" x="20" y="262" width="335" height="63.5"/>
                                         </stackView>
                                     </subviews>
+                                    <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
                                 </stackView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -96,6 +138,7 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="4na-r6-0ly" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="3Wq-Oz-0MH"/>
+                <constraint firstItem="4na-r6-0ly" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="GGd-ox-4BQ"/>
                 <constraint firstItem="4na-r6-0ly" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="PQm-8J-J3l"/>
                 <constraint firstItem="4na-r6-0ly" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Vji-ey-Kzm"/>
                 <constraint firstItem="4na-r6-0ly" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Wpo-CN-F3W"/>
@@ -103,7 +146,16 @@
             <connections>
                 <outlet property="imageCoin" destination="WDh-UX-ZbW" id="QAi-hk-bxG"/>
                 <outlet property="labelCoinName" destination="3pA-LZ-OL5" id="ZXH-kh-Sgf"/>
+                <outlet property="labelValorAno" destination="RkW-pb-GhP" id="8qa-PQ-6ry"/>
+                <outlet property="labelValorHora" destination="u3r-yv-RVL" id="koJ-Ke-v4r"/>
+                <outlet property="labelValorMes" destination="bfe-dD-xby" id="fF6-ho-qIh"/>
+                <outlet property="labelValorPrincipal" destination="QmO-RF-yFh" id="wEH-rt-07A"/>
+                <outlet property="lbStaticUltimaHora" destination="Uxf-kt-kqu" id="BBh-Vk-9gg"/>
+                <outlet property="lbStaticUltimoMes" destination="86o-hd-cgG" id="pSp-sb-caT"/>
+                <outlet property="lbStaticVolumesNegociados" destination="9DF-0b-OhK" id="0sp-dp-w9c"/>
+                <outlet property="lsStaticUltimoAno" destination="LGZ-Z9-fvs" id="ege-Jo-JRl"/>
                 <outlet property="stackFavorito" destination="2Eb-ap-HFh" id="owl-Gu-Agt"/>
+                <outlet property="stackFooter" destination="uZS-OK-yY3" id="4RY-3F-t52"/>
                 <outlet property="stackHeader" destination="9i6-yC-B9C" id="DEH-v2-XiF"/>
             </connections>
             <point key="canvasLocation" x="-146.40000000000001" y="103.89805097451276"/>

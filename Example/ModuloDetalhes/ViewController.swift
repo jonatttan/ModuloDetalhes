@@ -18,8 +18,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        stackMain.addArrangedSubview(body)
         CoinDetalheUIView().setupUI(delegate: self)
+        stackMain.addArrangedSubview(body)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // Não reenderiza no DidLoad, tenta aqui no DidApear ou um IBAction
     }
 }
 
