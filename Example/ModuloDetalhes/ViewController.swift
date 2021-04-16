@@ -14,18 +14,13 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var stackMain: UIStackView!
     
+    let body = CoinDetalheUIView.fromNib()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        stackMain.addArrangedSubview(body)
+        CoinDetalheUIView().setupUI(delegate: self)
     }
-    
-    func setupUI() {
-        super.viewDidLoad()
-        let head = CoinDetalheUIView.fromNib()
-        head.setupUI(delegate: self)
-        stackMain.addArrangedSubview(head)
-    }
-
 }
 
 extension ViewController: CoinDetalheDelegate {

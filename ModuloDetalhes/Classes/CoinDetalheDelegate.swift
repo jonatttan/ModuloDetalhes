@@ -7,6 +7,6 @@
 
 import Foundation
 
-//public protocol CoinDetalheDelegate: class {
-//    func favoritar()
-//}
+public protocol CoinDetalheDelegate: class {
+    func favoritar()
+}
