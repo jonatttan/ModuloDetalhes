@@ -13,16 +13,15 @@ import ModuloDetalhes
 class ViewController: UIViewController {
 
     @IBOutlet weak var stackMain: UIStackView!
-
+    let body = CoinDetalheUIView.fromNib()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        CoinDetalheUIView().setupUI(self, "BTC")
-        
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        // Não reenderiza no DidLoad, tenta aqui no DidApear ou um IBAction
-        let body = CoinDetalheUIView.fromNib()
+        print("--Sou viewDidLoad da ViewController")
+//        CoinDetalheUIView().setupUI(self, "BTC")
+        body.setupUI(self, "BTC")
         stackMain.addArrangedSubview(body)
+        
     }
 }
 

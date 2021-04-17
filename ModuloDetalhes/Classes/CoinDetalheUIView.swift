@@ -106,6 +106,7 @@ public class CoinDetalheUIView: UIView{
         botaoFavorito.layer.borderColor = UIColor.yellow.cgColor
         botaoFavorito.layer.borderWidth = 1.5
         botaoFavorito.layer.cornerRadius = 5
+        botaoFavorito.action(for: <#T##CALayer#>, forKey: <#T##String#>)
         return botaoFavorito
     }
     
