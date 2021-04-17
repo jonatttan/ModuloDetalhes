@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol CoinDetalheDelegate: class {
-    func favoritar()
+    func favoritar(_ id: String)
 }

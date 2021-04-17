@@ -34,7 +34,8 @@ public class CoinDetalheUIView: UIView{
     var favoritoDelegate: CoinDetalheDelegate?
     var actionFavorita: (() -> Void)?
     var buttonFavorito: UIButton?
-    var dados = DadosDetalhes(coinNome: "Bitcoin", coinImage: nil, coinValorPrincipal: "25.000,00", coinFavorite: "1", coinUltimaHora: "25.500,00", coinUltimoMes: "25.300,00", coinUltimoAno: "24.000,00")  // Teste
+//    var dados = DadosDetalhes(coinNome: "Bitcoin", coinImage: nil, coinValorPrincipal: "25.000,00", coinFavorite: "1", coinUltimaHora: "25.500,00", coinUltimoMes: "25.300,00", coinUltimoAno: "24.000,00")  // Teste
+    var idMoeda: String?
     //var dadosTeste: MoedaInfoElement?
     //MARK: - IBOutlets
     // First Stack
@@ -106,16 +107,20 @@ public class CoinDetalheUIView: UIView{
         botaoFavorito.layer.borderColor = UIColor.yellow.cgColor
         botaoFavorito.layer.borderWidth = 1.5
         botaoFavorito.layer.cornerRadius = 5
-        botaoFavorito.action(for: <#T##CALayer#>, forKey: <#T##String#>)
+        botaoFavorito.addTarget(self, action: #selector(acaoFavoritar), for: .touchUpOutside)
         return botaoFavorito
     }
     
-    public func setupUI(_ delegate: CoinDetalheDelegate, _ id: String) {
+    public func setupUI(_ delegate: CoinDetalheDelegate, _ id: String) -> String{
         self.favoritoDelegate = delegate
         InfoMoedaAPI().requestInfoMoedas(id: id) { (dadoRetorno) in
-            self.setValues(dadoRetorno)
+            let dado = dadoRetorno[0]
+            self.idMoeda = dado.assetID
+            self.setValues(dado)
+            self.botao()
         }
         print("--Sou setupUI")
+        return self.idMoeda ?? ""
     }
     
     private func setupUIView() {
@@ -152,8 +157,7 @@ public class CoinDetalheUIView: UIView{
         self.labelValorAno?.textColor = ColorDefault.fontColor
     }
     
-    private func setValues(_ dadoArray: [MoedaInfoElement]) {
-        let dado = dadoArray[0]
+    private func setValues(_ dado: MoedaInfoElement) {
         self.labelCoinName?.text = dado.assetID
         self.labelValorPrincipal?.text = "$ \(dado.priceUsd)"
         self.labelValorHora?.text = "$ \(dado.volume1HrsUsd)"
@@ -165,11 +169,12 @@ public class CoinDetalheUIView: UIView{
         //Aqui definir a cor da Stack
         
     }
-    @IBAction func btFavoritoAction(_ sender: UIButton) {
+    @objc func acaoFavoritar() {
+        guard let id = idMoeda else { return }
         if let action = self.actionFavorita {
             action()
         } else {
-            self.favoritoDelegate?.favoritar()
+            self.favoritoDelegate?.favoritar(id)
         }
     }
 }

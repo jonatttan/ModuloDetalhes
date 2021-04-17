@@ -11,22 +11,25 @@ import UIKit
 import ModuloDetalhes
 
 class ViewController: UIViewController {
-
+    
+    
     @IBOutlet weak var stackMain: UIStackView!
     let body = CoinDetalheUIView.fromNib()
+    public var id: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("--Sou viewDidLoad da ViewController")
 //        CoinDetalheUIView().setupUI(self, "BTC")
-        body.setupUI(self, "BTC")
+        id = body.setupUI(self, "BTC")
         stackMain.addArrangedSubview(body)
-        
     }
 }
 
 extension ViewController: CoinDetalheDelegate {
-    func favoritar() {
-        // Ação que vc quiser
+    func favoritar(_ id: String) {
+        print("============\(id)================")
     }
+    
+
 }
