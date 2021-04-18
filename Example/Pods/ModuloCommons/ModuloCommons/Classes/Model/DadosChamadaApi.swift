@@ -1,6 +1,6 @@
 //
 //  DadosChamadaApi.swift
-//  OnboardingMobileChallenge
+//  FBSnapshotTestCase
 //
 //  Created by Jaqueline Bittencourt Santos on 16/04/21.
 //

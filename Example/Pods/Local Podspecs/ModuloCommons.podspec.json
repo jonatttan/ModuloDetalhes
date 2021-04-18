@@ -1,9 +1,9 @@
 {
-  "name": "ModuloDetalhes",
+  "name": "ModuloCommons",
   "version": "0.1.0",
-  "summary": "A short description of ModuloDetalhes.",
+  "summary": "A short description of ModuloCommons.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/jonatttan/ModuloDetalhes",
+  "homepage": "https://github.com/jonatttan/ModuloCommons",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,25 +12,19 @@
     "jonatttan": "jonattan.sousa@gmail.com"
   },
   "source": {
-    "git": "https://github.com/jonatttan/ModuloDetalhes.git",
+    "git": "https://github.com/jonatttan/ModuloCommons.git",
     "tag": "0.1.0"
   },
   "platforms": {
     "ios": "10.0"
   },
-  "source_files": "ModuloDetalhes/Classes/**/*",
+  "source_files": "ModuloCommons/Classes/**/*",
   "dependencies": {
-    "AFNetworking": [
-      "~> 2.3"
-    ],
     "Alamofire": [
       "~> 5.2"
     ],
     "AlamofireImage": [
       "~> 4.1"
-    ],
-    "ModuloCommons": [
-
     ]
   }
 }

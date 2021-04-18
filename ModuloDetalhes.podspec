@@ -41,4 +41,5 @@ TODO: Add long description of the pod here.
    s.dependency 'AFNetworking', '~> 2.3'
    s.dependency 'Alamofire', '~> 5.2'
    s.dependency 'AlamofireImage', '~> 4.1'
+   s.dependency 'ModuloCommons'
 end

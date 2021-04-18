@@ -1,0 +1,6 @@
+framework module ModuloCommons {
+  umbrella header "ModuloCommons-umbrella.h"
+
+  export *
+  module * { export * }
+}

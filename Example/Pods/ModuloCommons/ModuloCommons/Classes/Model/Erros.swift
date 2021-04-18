@@ -1,11 +1,10 @@
 //
 //  Erros.swift
-//  OnboardingMobileChallenge
-//
+//  FBSnapshotTestCase
 //  Created by Jaqueline Bittencourt Santos on 14/04/21.
-//
+//  Integrado ao Commons 17/04
 
-import UIKit
+import Foundation
 
 enum ErrosEnum : String {
     
@@ -17,7 +16,7 @@ enum ErrosEnum : String {
     case unexpectedError = "Erro Inesperado"
 }
 
-class Erros: NSObject {
+public class Erros: NSObject {
     
     let erros = [            400: ErrosEnum.badRequest,
                              401: ErrosEnum.unauthorized,
@@ -26,7 +25,7 @@ class Erros: NSObject {
                              550: ErrosEnum.noData
                             ]
     
-    func sobrescreverMensagemDeErro(statusCode: Int) {
+    public func sobrescreverMensagemDeErro(statusCode: Int) {
         print(erros[statusCode] ?? ErrosEnum.unexpectedError)
     }
 

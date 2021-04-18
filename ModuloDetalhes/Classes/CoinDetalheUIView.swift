@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ModuloCommons
 
 public struct ScreenSize {
     public static let screenHeight = UIScreen.main.bounds.height / 2
@@ -159,10 +160,10 @@ public class CoinDetalheUIView: UIView{
     
     private func setValues(_ dado: MoedaInfoElement) {
         self.labelCoinName?.text = dado.assetID
-        self.labelValorPrincipal?.text = "$ \(dado.priceUsd)"
-        self.labelValorHora?.text = "$ \(dado.volume1HrsUsd)"
-        self.labelValorMes?.text = "$ \(dado.volume1DayUsd)"
-        self.labelValorAno?.text = "$ \(dado.volume1MthUsd)" // Setado mês, não consta ano na struct
+        self.labelValorPrincipal?.text = dado.priceUsd.formatadorDolar(valor: dado.priceUsd)
+        self.labelValorHora?.text = dado.volume1HrsUsd.formatadorDolar(valor: dado.volume1HrsUsd)
+        self.labelValorMes?.text = dado.volume1DayUsd.formatadorDolar(valor: dado.volume1DayUsd)
+        self.labelValorAno?.text = dado.volume1MthUsd.formatadorDolar(valor: dado.volume1MthUsd) // Setado mês, não consta ano na struct
         
     }
     private func setupUICell() {

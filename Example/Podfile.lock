@@ -28,14 +28,19 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
+  - ModuloCommons (0.1.0):
+    - Alamofire (~> 5.2)
+    - AlamofireImage (~> 4.1)
   - ModuloDetalhes (0.1.0):
     - AFNetworking (~> 2.3)
     - Alamofire (~> 5.2)
     - AlamofireImage (~> 4.1)
+    - ModuloCommons
   - SwiftLint (0.43.1)
 
 DEPENDENCIES:
   - FBSnapshotTestCase (~> 2.1.4)
+  - ModuloCommons (from `https://github.com/jonatttan/ModuloCommons.git`)
   - ModuloDetalhes (from `../`)
   - SwiftLint
 
@@ -48,17 +53,25 @@ SPEC REPOS:
     - SwiftLint
 
 EXTERNAL SOURCES:
+  ModuloCommons:
+    :git: https://github.com/jonatttan/ModuloCommons.git
   ModuloDetalhes:
     :path: "../"
+
+CHECKOUT OPTIONS:
+  ModuloCommons:
+    :commit: 305fd7264cf8a6c5fe9c6d1b6f2e47b8afd2fe2f
+    :git: https://github.com/jonatttan/ModuloCommons.git
 
 SPEC CHECKSUMS:
   AFNetworking: 8dd5f9b9691e09186393069a12cc3b5ed7c8b511
   Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
   AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  ModuloDetalhes: b1c3f2d46927507419cbe7675c50d57c6f319c06
+  ModuloCommons: fe33464dc430261bc595a5666b18c8d6e5b4d2bd
+  ModuloDetalhes: a62325520120e9f03e682b8dc27b6cb4b334d29b
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 13206cadfa21f317d89de105cf439c73e7344e75
+PODFILE CHECKSUM: 8a901d99e11b665fb9df57a1843f120a2c40207e
 
 COCOAPODS: 1.10.1
