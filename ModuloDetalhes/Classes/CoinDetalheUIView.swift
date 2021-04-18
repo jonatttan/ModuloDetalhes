@@ -13,22 +13,6 @@ public struct ScreenSize {
     public static let screenWidth = UIScreen.main.bounds.width
 }
 
-public struct ColorDefault {
-    public static let fontColor = UIColor.white
-    public static let headColor = UIColor.systemGreen
-    public static let footerColor = UIColor.black
-}
-
-public struct DadosDetalhes {
-    public var coinNome = ""
-    public var coinImage: UIImage?
-    public var coinValorPrincipal = ""
-    public var coinFavorite = ""
-    public var coinUltimaHora = ""
-    public var coinUltimoMes = ""
-    public var coinUltimoAno = ""
-}
-
 public class CoinDetalheUIView: UIView{
     
     //MARK: - Variáveis
@@ -45,6 +29,8 @@ public class CoinDetalheUIView: UIView{
     @IBOutlet weak var imageCoin: UIImageView?
     @IBOutlet weak var labelValorPrincipal: UILabel?
     @IBOutlet weak var stackFavorito: UIStackView!
+    @IBOutlet weak var viewBotao: UIView!
+    
     // Second Stack
     @IBOutlet weak var stackFooter: UIStackView!
     @IBOutlet weak var lbStaticVolumesNegociados: UILabel!
@@ -99,16 +85,18 @@ public class CoinDetalheUIView: UIView{
     
     public func botao() -> UIButton{
         let botaoFavorito = UIButton()
-        botaoFavorito.setTitle("Favoritar", for: .normal)
-        botaoFavorito.setTitle(";)", for: .highlighted)
+        botaoFavorito.setTitle("ADICIONAR", for: .normal)
+        botaoFavorito.setTitle("REMOVER", for: .highlighted)
         botaoFavorito.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        botaoFavorito.frame.size = CGSize(width: (ScreenSize.screenWidth / 4), height: (ScreenSize.screenHeight / 8))
-        botaoFavorito.backgroundColor = .gray
-        botaoFavorito.tintColor = .yellow
-        botaoFavorito.layer.borderColor = UIColor.yellow.cgColor
-        botaoFavorito.layer.borderWidth = 1.5
-        botaoFavorito.layer.cornerRadius = 5
+//        botaoFavorito.frame.size = CGSize(width: (ScreenSize.screenWidth / 2), height: (ScreenSize.screenHeight / 8))
+        botaoFavorito.backgroundColor = .corPrimaria()
+//        botaoFavorito.tintColor = .yellow
+        botaoFavorito.layer.borderColor = UIColor.white.cgColor
+        botaoFavorito.layer.borderWidth = 1
+        botaoFavorito.layer.cornerRadius = 7
         botaoFavorito.addTarget(self, action: #selector(acaoFavoritar), for: .touchUpOutside)
+//        botaoFavorito.center = self.center
+        self.alinharBotao()
         return botaoFavorito
     }
     
@@ -130,16 +118,27 @@ public class CoinDetalheUIView: UIView{
     
     private func buttonAdd(_ button: UIButton?) {
         if let bttn:UIButton = button {
-            self.stackFavorito.addSubview(bttn)
+            self.viewBotao.addSubview(bttn)
         }
+    }
+    
+    func alinharBotao() {
+
+        guard let button = self.buttonFavorito else { return }
+        button.translatesAutoresizingMaskIntoConstraints = false
         
-//        stackFavorito.addConstraint(NSLayoutConstraint(item: botaoZin, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: stackFavorito, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0))
-//        stackFavorito.addConstraint(NSLayoutConstraint(item: botaoZin, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: stackFavorito, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0))
+            let horizontalConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: viewBotao, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
+            let verticalConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: viewBotao, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
+            let widthConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: (ScreenSize.screenWidth / 2))
+            let heightConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: (ScreenSize.screenHeight / 8))
+
+        viewBotao.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
     }
     
     private func colorStack() {
-        self.stackHeader.backgroundColor = ColorDefault.headColor
-        self.stackFooter.backgroundColor = ColorDefault.footerColor
+        self.stackHeader.backgroundColor = UIColor.corPrimaria()
+        self.stackFooter.backgroundColor = UIColor.corSecundaria()
+        self.viewBotao.backgroundColor = UIColor.corPrimaria()
     }
     
     private func fontStyle() {
@@ -147,15 +146,15 @@ public class CoinDetalheUIView: UIView{
     }
     
     private func colorFont() {
-        self.labelCoinName?.textColor = ColorDefault.fontColor
-        self.labelValorPrincipal?.textColor = ColorDefault.fontColor
-        self.lbStaticVolumesNegociados.textColor = ColorDefault.fontColor
-        self.lbStaticUltimaHora.textColor = ColorDefault.fontColor
-        self.lbStaticUltimoMes.textColor = ColorDefault.fontColor
-        self.lsStaticUltimoAno.textColor = ColorDefault.fontColor
-        self.labelValorHora?.textColor = ColorDefault.fontColor
-        self.labelValorMes?.textColor = ColorDefault.fontColor
-        self.labelValorAno?.textColor = ColorDefault.fontColor
+        self.labelCoinName?.textColor = UIColor.corTexto()
+        self.labelValorPrincipal?.textColor = UIColor.corTexto()
+        self.lbStaticVolumesNegociados.textColor = UIColor.corTexto()
+        self.lbStaticUltimaHora.textColor = UIColor.corTexto()
+        self.lbStaticUltimoMes.textColor = UIColor.corTexto()
+        self.lsStaticUltimoAno.textColor = UIColor.corTexto()
+        self.labelValorHora?.textColor = UIColor.corTexto()
+        self.labelValorMes?.textColor = UIColor.corTexto()
+        self.labelValorAno?.textColor = UIColor.corTexto()
     }
     
     private func setValues(_ dado: MoedaInfoElement) {

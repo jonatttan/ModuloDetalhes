@@ -41,6 +41,18 @@
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2Eb-ap-HFh">
                                             <rect key="frame" x="0.0" y="250" width="375" height="83.5"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5eN-vp-NG0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="83.5"/>
+                                                    <color key="backgroundColor" systemColor="linkColor"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="5eN-vp-NG0" secondAttribute="bottom" id="ZWP-X4-zbM"/>
+                                                <constraint firstAttribute="trailing" secondItem="5eN-vp-NG0" secondAttribute="trailing" id="dLP-8w-i5Y"/>
+                                                <constraint firstItem="5eN-vp-NG0" firstAttribute="leading" secondItem="2Eb-ap-HFh" secondAttribute="leading" id="tER-RL-9Pd"/>
+                                                <constraint firstItem="5eN-vp-NG0" firstAttribute="top" secondItem="2Eb-ap-HFh" secondAttribute="top" id="uhj-LD-NZ2"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                 </stackView>
@@ -157,11 +169,15 @@
                 <outlet property="stackFavorito" destination="2Eb-ap-HFh" id="owl-Gu-Agt"/>
                 <outlet property="stackFooter" destination="uZS-OK-yY3" id="4RY-3F-t52"/>
                 <outlet property="stackHeader" destination="9i6-yC-B9C" id="DEH-v2-XiF"/>
+                <outlet property="viewBotao" destination="5eN-vp-NG0" id="HJz-wm-qz6"/>
             </connections>
             <point key="canvasLocation" x="-146.40000000000001" y="103.89805097451276"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
