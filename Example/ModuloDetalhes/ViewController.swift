@@ -19,9 +19,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("--Sou viewDidLoad da ViewController")
-//        CoinDetalheUIView().setupUI(self, "BTC")
-        id = body.setupUI(self, "AMP")
+        body.idMoeda = "LTC"
+        body.setupUI(self)
         stackMain.addArrangedSubview(body)
     }
 }
