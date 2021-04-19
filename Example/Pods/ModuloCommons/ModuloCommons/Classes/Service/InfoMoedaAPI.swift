@@ -29,8 +29,6 @@ public class InfoMoedaAPI: NSObject {
                 } else {
                     print("==Não é criptomoeda==")
                 }
-                print(retorno)
-                print("--Sou Alamofire executado")
             } catch{
                 guard let statusCode = responseData.response?.statusCode else {return}
                 self.erros.sobrescreverMensagemDeErro(statusCode: statusCode)

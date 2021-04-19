@@ -7,15 +7,6 @@
 
 import UIKit
 
-public struct TesteDois {
-   public let valor = 20
-   public let valor2 = 30
-
-}
-
-class Nibs: UIView {
-}
-
 extension UIView {
     public static var bundleUI: Bundle {
         var bundle: Bundle
@@ -35,4 +26,5 @@ extension UIView {
         }
         return T()
     }
+    
 }
