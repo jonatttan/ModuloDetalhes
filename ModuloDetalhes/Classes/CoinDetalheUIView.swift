@@ -19,8 +19,8 @@ public class CoinDetalheUIView: UIView{
     var favoritoDelegate: CoinDetalheDelegate?
     var actionFavorita: (() -> Void)?
     var buttonFavorito: UIButton?
-//    var dados = DadosDetalhes(coinNome: "Bitcoin", coinImage: nil, coinValorPrincipal: "25.000,00", coinFavorite: "1", coinUltimaHora: "25.500,00", coinUltimoMes: "25.300,00", coinUltimoAno: "24.000,00")  // Teste
     var idMoeda: String?
+    var moedasFavorito = ["XLM", "LTC", "DASH", "AMP", "BAT"]
     //var dadosTeste: MoedaInfoElement?
     //MARK: - IBOutlets
     // First Stack
@@ -94,7 +94,7 @@ public class CoinDetalheUIView: UIView{
         botaoFavorito.layer.borderColor = UIColor.white.cgColor
         botaoFavorito.layer.borderWidth = 1
         botaoFavorito.layer.cornerRadius = 7
-        botaoFavorito.addTarget(self, action: #selector(acaoFavoritar), for: .touchUpOutside)
+//        botaoFavorito.addTarget(self, action: #selector(acaoFavoritar), for: .touchUpOutside)
 //        botaoFavorito.center = self.center
         self.alinharBotao()
         return botaoFavorito
@@ -106,6 +106,7 @@ public class CoinDetalheUIView: UIView{
             let dado = dadoRetorno[0]
             self.idMoeda = dado.assetID
             self.setValues(dado)
+            let favorito = self.verSeFavorito(id)
             self.botao()
         }
         print("--Sou setupUI")
@@ -118,8 +119,18 @@ public class CoinDetalheUIView: UIView{
     
     private func buttonAdd(_ button: UIButton?) {
         if let bttn:UIButton = button {
+            bttn.addTarget(self, action: #selector(acaoFavoritar), for: .touchUpInside)
             self.viewBotao.addSubview(bttn)
         }
+    }
+    
+    func verSeFavorito(_ id: String) -> Int{
+        for moeda in self.moedasFavorito {
+            if moeda == id {
+                return 1
+            }
+        }
+        return 0
     }
     
     func alinharBotao() {

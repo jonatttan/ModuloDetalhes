@@ -12,7 +12,7 @@ import ModuloDetalhes
 
 class ViewController: UIViewController {
     
-    
+    // XLM LTC DASH AMP BAT
     @IBOutlet weak var stackMain: UIStackView!
     let body = CoinDetalheUIView.fromNib()
     public var id: String?
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         print("--Sou viewDidLoad da ViewController")
 //        CoinDetalheUIView().setupUI(self, "BTC")
-        id = body.setupUI(self, "BTC")
+        id = body.setupUI(self, "AMP")
         stackMain.addArrangedSubview(body)
     }
 }
