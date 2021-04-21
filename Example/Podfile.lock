@@ -60,7 +60,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ModuloCommons:
-    :commit: 305fd7264cf8a6c5fe9c6d1b6f2e47b8afd2fe2f
+    :commit: cdbaf95ac3007314ccb5cad2437c21491ac7d4e7
     :git: https://github.com/jonatttan/ModuloCommons.git
 
 SPEC CHECKSUMS:

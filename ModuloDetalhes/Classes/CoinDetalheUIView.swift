@@ -7,6 +7,8 @@
 
 import UIKit
 import ModuloCommons
+import Alamofire
+import AlamofireImage
 
 struct ScreenSize {
     static let screenHeight = UIScreen.main.bounds.height / 2
@@ -69,6 +71,8 @@ public class CoinDetalheUIView: UIView {
         }
     }
     private func setValues(_ dado: MoedaInfoElement) {
+        guard let imagem = DataImage().requestImageUrl(dado.idIcon) else { return }
+        self.imageCoin?.af.setImage(withURL: imagem)
         self.labelCoinName?.text = dado.assetID
         self.labelValorPrincipal?.text = dado.priceUsd.formatadorDolar(valor: dado.priceUsd)
         self.labelValorHora?.text = dado.volume1HrsUsd.formatadorDolar(valor: dado.volume1HrsUsd)

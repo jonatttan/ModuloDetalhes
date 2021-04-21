@@ -26,8 +26,6 @@ public class InfoMoedaAPI: NSObject {
                 do {
                     let retorno = try JSONDecoder().decode([MoedaInfoElement].self, from: data)
                     completionHandler(retorno)
-                    print(retorno)
-                    print("--Sou Alamofire executado")
                     
                 } catch{
                     guard let statusCode = responseData.response?.statusCode else {return}

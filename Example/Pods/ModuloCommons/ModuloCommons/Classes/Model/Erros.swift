@@ -13,6 +13,7 @@ enum ErrosEnum : String {
     case forBidden = "Sua chave API não tem privilégios suficientes para acessar este recurso"
     case tooManyRequests = "Você excedeu seus limites de Requisições"
     case noData = "Especificamente este ítem não foi encontrado"
+    case serverOff = "Servidor OffLine"
     case unexpectedError = "Erro Inesperado"
 }
 
@@ -22,7 +23,8 @@ public class Erros: NSObject {
                              401: ErrosEnum.unauthorized,
                              403: ErrosEnum.forBidden,
                              429: ErrosEnum.tooManyRequests,
-                             550: ErrosEnum.noData
+                             550: ErrosEnum.noData,
+                             503: ErrosEnum.serverOff
                             ]
     
     public func sobrescreverMensagemDeErro(statusCode: Int) {
