@@ -22,8 +22,9 @@ public class CoinDetalheUIView: UIView {
     var actionFavorita: (() -> Void)?
     var buttonFavorito: UIButton?
     public var idMoeda: String?
+    public var seFavorito = false
     var title = "-"
-    var moedasFavorito = ["XLM", "LTC", "DASH", "BAT"]
+//    var moedasFavorito = ["XLM", "LTC", "DASH", "BAT"]
     //MARK: - IBOutlets
     // First Stack
     @IBOutlet weak var stackHeader: UIStackView!
@@ -50,16 +51,17 @@ public class CoinDetalheUIView: UIView {
         colorStack()
         colorFont()
         fontStyle()
-        botao()
+        self.buttonFavorito = botao()
     }
     override public func layoutSubviews() { // Acionado no inicio e no retorno quando minimizado
         super.layoutSubviews()
-        title = self.configuraTituloBotao(self.idMoeda)
+        title = self.configuraTituloBotao(self.seFavorito)
         buttonFavorito?.setTitle(title, for: .normal)
         if let bttn = buttonFavorito {
             self.viewBotao.addSubview(bttn)
             self.buttonFavorito = bttn
         }
+        //Aqui na criação é possivel alterar.
     }
     public func setupUI(_ delegate: CoinDetalheDelegate) {
         self.favoritoDelegate = delegate
@@ -67,7 +69,7 @@ public class CoinDetalheUIView: UIView {
         InfoMoedaAPI().requestInfoMoedas(id: id) { (dadoRetorno) in
             let dado = dadoRetorno[0]
             self.setValues(dado)
-            self.botao()
+            self.buttonFavorito = self.botao()
         }
     }
     private func setValues(_ dado: MoedaInfoElement) {
@@ -81,11 +83,11 @@ public class CoinDetalheUIView: UIView {
         // Setado mês, não consta ano na struct
     }
     @objc func acaoFavoritar() {
-        guard let id = idMoeda else { return }
+        guard let id = self.idMoeda else { return }
         if let action = self.actionFavorita {
             action()
         } else {
-            self.favoritoDelegate?.favoritar(id)
+            self.favoritoDelegate?.favoritar(id, self.seFavorito)
         }
     }
 }

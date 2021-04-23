@@ -15,18 +15,21 @@ class ViewController: UIViewController {
     // XLM LTC DASH AMP BAT
     @IBOutlet weak var stackMain: UIStackView!
     let body = CoinDetalheUIView.fromNib()
+    var favorito = false
     public var id: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        body.idMoeda = "LTC"
+        body.idMoeda = "ETH"
+        body.seFavorito = self.favorito
+        
         body.setupUI(self)
         stackMain.addArrangedSubview(body)
     }
 }
 
 extension ViewController: CoinDetalheDelegate {
-    func favoritar(_ id: String) {
+    func favoritar(_ id: String, _ acao: Bool) {
         print("============\(id)================")
     }
     

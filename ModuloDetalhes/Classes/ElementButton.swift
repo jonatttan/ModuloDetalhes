@@ -9,16 +9,13 @@ import Foundation
 
 extension CoinDetalheUIView {
     
-    func configuraTituloBotao(_ idMoedaInterna: String?) -> String { // configurar aqui para setar e add se id diferente de vazio
-        guard let id = idMoedaInterna else { return "ops..."}
-        for moeda in moedasFavorito {
-            if moeda == id {
-               return "REMOVER"
-            }
+    func configuraTituloBotao(_ favorito: Bool) -> String { // configurar aqui para setar e add se id diferente de vazio
+        if favorito {
+           return "REMOVER"
         }
         return "ADICIONAR"
     }
-    func botao() {
+    func botao() -> UIButton {
         let botaoFavorito = UIButton()
         //botaoFavorito.setTitle(title, for: .normal)
         //botaoFavorito.setTitle("-\(title)-", for: .highlighted)
@@ -27,9 +24,11 @@ extension CoinDetalheUIView {
         botaoFavorito.layer.borderColor = UIColor.white.cgColor
         botaoFavorito.layer.borderWidth = 1
         botaoFavorito.layer.cornerRadius = 7
+        botaoFavorito.setTitleColor(.blue, for: .highlighted)
         self.alinharBotao()
         botaoFavorito.addTarget(self, action: #selector(acaoFavoritar), for: .touchUpInside)
-        self.buttonFavorito = botaoFavorito
+//        self.buttonFavorito = botaoFavorito
+        return botaoFavorito
     }
     func alinharBotao() {
         guard let button = self.buttonFavorito else { return }
