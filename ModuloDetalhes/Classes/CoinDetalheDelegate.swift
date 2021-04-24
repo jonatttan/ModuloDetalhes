@@ -9,4 +9,5 @@ import Foundation
 
 public protocol CoinDetalheDelegate: class {
     func favoritar(_ id: String, _ acao: Bool)
+    func voltar()
 }

@@ -29,6 +29,10 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: CoinDetalheDelegate {
+    func voltar() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func favoritar(_ id: String, _ acao: Bool) {
         print("============\(id)================")
     }

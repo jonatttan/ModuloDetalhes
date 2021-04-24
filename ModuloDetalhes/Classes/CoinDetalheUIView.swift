@@ -20,6 +20,7 @@ public class CoinDetalheUIView: UIView {
     //MARK: - Variáveis
     var favoritoDelegate: CoinDetalheDelegate?
     var actionFavorita: (() -> Void)?
+    var actionVoltar: (() -> Void)?
     var buttonFavorito: UIButton?
     public var idMoeda: String?
     public var seFavorito = false
@@ -81,6 +82,14 @@ public class CoinDetalheUIView: UIView {
         self.labelValorMes?.text = dado.volume1DayUsd.formatadorDolar(valor: dado.volume1DayUsd)
         self.labelValorAno?.text = dado.volume1MthUsd.formatadorDolar(valor: dado.volume1MthUsd)
         // Setado mês, não consta ano na struct
+    }
+    @IBAction func bttnVoltar(_ sender: UIButton) {
+        if let actionReturn = self.actionVoltar {
+            actionReturn()
+        } else {
+            self.favoritoDelegate?.voltar()
+            print("-----Eu deveria fechar")
+        }
     }
     @objc func acaoFavoritar() {
         guard let id = self.idMoeda else { return }
