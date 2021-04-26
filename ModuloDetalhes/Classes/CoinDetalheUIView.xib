@@ -31,7 +31,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="138" height="102.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal" title="  &lt; Voltar">
-                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="bttnVoltar:" destination="iN0-l3-epB" eventType="touchUpInside" id="4Yf-q9-f5o"/>

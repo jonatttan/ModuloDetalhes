@@ -15,6 +15,10 @@ extension CoinDetalheUIView {
         }
         return "ADICIONAR"
     }
+    func setTitleRuntime() {
+        self.buttonFavorito.setTitle("Goiabinha", for: .normal) // configuraTituloBotao(self.seFavorito)
+        print("-----------Mudar Titulo")
+    }
     func botao() -> UIButton {
         let botaoFavorito = UIButton()
         //botaoFavorito.setTitle(title, for: .normal)
@@ -39,5 +43,4 @@ extension CoinDetalheUIView {
         let heightConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: (ScreenSize.screenHeight / 8))
         viewBotao.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
     }
-    
 }

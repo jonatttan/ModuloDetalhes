@@ -21,11 +21,10 @@ public class CoinDetalheUIView: UIView {
     var favoritoDelegate: CoinDetalheDelegate?
     var actionFavorita: (() -> Void)?
     var actionVoltar: (() -> Void)?
-    var buttonFavorito: UIButton?
+    var buttonFavorito: UIButton!
     public var idMoeda: String?
     public var seFavorito = false
-    var title = "-"
-//    var moedasFavorito = ["XLM", "LTC", "DASH", "BAT"]
+    
     //MARK: - IBOutlets
     // First Stack
     @IBOutlet weak var stackHeader: UIStackView!
@@ -45,7 +44,6 @@ public class CoinDetalheUIView: UIView {
     @IBOutlet weak var labelValorMes: UILabel?
     @IBOutlet weak var labelValorAno: UILabel?
     
-    
     //MARK: - Funções
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -56,13 +54,8 @@ public class CoinDetalheUIView: UIView {
     }
     override public func layoutSubviews() { // Acionado no inicio e no retorno quando minimizado
         super.layoutSubviews()
-        title = self.configuraTituloBotao(self.seFavorito)
-        buttonFavorito?.setTitle(title, for: .normal)
-        if let bttn = buttonFavorito {
-            self.viewBotao.addSubview(bttn)
-            self.buttonFavorito = bttn
-        }
-        //Aqui na criação é possivel alterar.
+        buttonFavorito.setTitle(self.configuraTituloBotao(self.seFavorito), for: .normal)
+        self.viewBotao.addSubview(buttonFavorito)
     }
     public func setupUI(_ delegate: CoinDetalheDelegate) {
         self.favoritoDelegate = delegate
@@ -83,20 +76,22 @@ public class CoinDetalheUIView: UIView {
         self.labelValorAno?.text = dado.volume1MthUsd.formatadorDolar(valor: dado.volume1MthUsd)
         // Setado mês, não consta ano na struct
     }
-    @IBAction func bttnVoltar(_ sender: UIButton) {
-        if let actionReturn = self.actionVoltar {
-            actionReturn()
-        } else {
-            self.favoritoDelegate?.voltar()
-            print("-----Eu deveria fechar")
-        }
-    }
     @objc func acaoFavoritar() {
         guard let id = self.idMoeda else { return }
         if let action = self.actionFavorita {
             action()
         } else {
             self.favoritoDelegate?.favoritar(id, self.seFavorito)
+            self.seFavorito = !self.seFavorito
+            setTitleRuntime()
         }
     }
+    @IBAction func bttnVoltar(_ sender: UIButton) {
+        if let actionReturn = self.actionVoltar {
+            actionReturn()
+        } else {
+            self.favoritoDelegate?.voltar()
+        }
+    }
+    
 }
