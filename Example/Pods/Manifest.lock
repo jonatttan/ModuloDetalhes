@@ -28,6 +28,11 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
+  - iOSSnapshotTestCase (6.2.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 6.2.0)
+  - iOSSnapshotTestCase/Core (6.2.0)
+  - iOSSnapshotTestCase/SwiftSupport (6.2.0):
+    - iOSSnapshotTestCase/Core
   - ModuloCommons (0.1.0):
     - Alamofire (~> 5.2)
     - AlamofireImage (~> 4.1)
@@ -36,12 +41,22 @@ PODS:
     - Alamofire (~> 5.2)
     - AlamofireImage (~> 4.1)
     - ModuloCommons
+  - Nimble (9.0.0)
+  - Nimble-Snapshots (9.1.0):
+    - Nimble-Snapshots/Core (= 9.1.0)
+  - Nimble-Snapshots/Core (9.1.0):
+    - iOSSnapshotTestCase (~> 6.0)
+    - Nimble
+  - Quick (3.1.2)
   - SwiftLint (0.43.1)
 
 DEPENDENCIES:
   - FBSnapshotTestCase (~> 2.1.4)
   - ModuloCommons (from `https://github.com/jonatttan/ModuloCommons.git`)
   - ModuloDetalhes (from `../`)
+  - Nimble
+  - Nimble-Snapshots
+  - Quick
   - SwiftLint
 
 SPEC REPOS:
@@ -50,6 +65,10 @@ SPEC REPOS:
     - Alamofire
     - AlamofireImage
     - FBSnapshotTestCase
+    - iOSSnapshotTestCase
+    - Nimble
+    - Nimble-Snapshots
+    - Quick
     - SwiftLint
 
 EXTERNAL SOURCES:
@@ -68,10 +87,14 @@ SPEC CHECKSUMS:
   Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
   AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6
   ModuloCommons: fe33464dc430261bc595a5666b18c8d6e5b4d2bd
   ModuloDetalhes: a62325520120e9f03e682b8dc27b6cb4b334d29b
+  Nimble: 3b4ec3fd40f1dc178058e0981107721c615643d8
+  Nimble-Snapshots: 6605431525245f967ca9d558bb12a49da3d040e3
+  Quick: 60f0ea3b8e0cfc0df3259a5c06a238ad8b3c46e0
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 8a901d99e11b665fb9df57a1843f120a2c40207e
+PODFILE CHECKSUM: 7a848fef6b1ec3ac04c2c5df36db2e29b006c68a
 
 COCOAPODS: 1.10.1
