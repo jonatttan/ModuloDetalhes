@@ -20,9 +20,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        body.idMoeda = "ETH"
-        body.seFavorito = self.favorito
-        
+        DataScreen.idMoeda = "ETH"
+        DataScreen.seFavorito = self.favorito
         body.setupUI(self)
         stackMain.addArrangedSubview(body)
     }
@@ -32,10 +31,7 @@ extension ViewController: CoinDetalheDelegate {
     func voltar() {
         self.dismiss(animated: true, completion: nil)
     }
-    
     func favoritar(_ id: String, _ acao: Bool) {
         print("============\(id)================")
     }
-    
-
 }

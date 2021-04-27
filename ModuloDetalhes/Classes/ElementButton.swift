@@ -9,14 +9,14 @@ import Foundation
 
 extension CoinDetalheUIView {
     
-    func configuraTituloBotao(_ favorito: Bool) -> String { // configurar aqui para setar e add se id diferente de vazio
+    public func configuraTituloBotao(_ favorito: Bool) -> String { // configurar aqui para setar e add se id diferente de vazio
         if favorito {
            return "REMOVER"
         }
         return "ADICIONAR"
     }
     func setTitleRuntime() {
-        self.buttonFavorito.setTitle("Goiabinha", for: .normal) // configuraTituloBotao(self.seFavorito)
+        DataScreen.buttonFavorito.setTitle("Goiabinha", for: .normal) // configuraTituloBotao(self.seFavorito)
         print("-----------Mudar Titulo")
     }
     func botao() -> UIButton {
@@ -35,7 +35,7 @@ extension CoinDetalheUIView {
         return botaoFavorito
     }
     func alinharBotao() {
-        guard let button = self.buttonFavorito else { return }
+        guard let button = DataScreen.buttonFavorito else { return }
         button.translatesAutoresizingMaskIntoConstraints = false
         let horizontalConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: viewBotao, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
         let verticalConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: viewBotao, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)

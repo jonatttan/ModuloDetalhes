@@ -14,16 +14,23 @@ struct ScreenSize {
     static let screenHeight = UIScreen.main.bounds.height / 2
     static let screenWidth = UIScreen.main.bounds.width
 }
-
+public struct DataScreen {
+    public static var favoritoDelegate: CoinDetalheDelegate?
+    public static var actionFavorita: (() -> Void)?
+    public static var actionVoltar: (() -> Void)?
+    public static var buttonFavorito: UIButton!
+    public static var idMoeda: String?
+    public static var seFavorito = false
+}
 public class CoinDetalheUIView: UIView {
     
     //MARK: - Variáveis
-    var favoritoDelegate: CoinDetalheDelegate?
-    var actionFavorita: (() -> Void)?
-    var actionVoltar: (() -> Void)?
-    var buttonFavorito: UIButton!
-    public var idMoeda: String?
-    public var seFavorito = false
+//    var favoritoDelegate: CoinDetalheDelegate?
+//    var actionFavorita: (() -> Void)?
+//    var actionVoltar: (() -> Void)?
+//    var buttonFavorito: UIButton!
+//    public var idMoeda: String?
+//    public var seFavorito = false
     
     //MARK: - IBOutlets
     // First Stack
@@ -50,20 +57,23 @@ public class CoinDetalheUIView: UIView {
         colorStack()
         colorFont()
         fontStyle()
-        self.buttonFavorito = botao()
+        DataScreen.buttonFavorito = botao()
+//        self.buttonFavorito = botao()
     }
     override public func layoutSubviews() { // Acionado no inicio e no retorno quando minimizado
         super.layoutSubviews()
-        buttonFavorito.setTitle(self.configuraTituloBotao(self.seFavorito), for: .normal)
-        self.viewBotao.addSubview(buttonFavorito)
+//        buttonFavorito.setTitle(self.configuraTituloBotao(self.seFavorito), for: .normal)
+        DataScreen.buttonFavorito.setTitle(self.configuraTituloBotao(DataScreen.seFavorito), for: .normal)
+//        self.viewBotao.addSubview(buttonFavorito)
+        self.viewBotao.addSubview(DataScreen.buttonFavorito)
     }
     public func setupUI(_ delegate: CoinDetalheDelegate) {
-        self.favoritoDelegate = delegate
-        guard let id = self.idMoeda else { return }
+        DataScreen.favoritoDelegate = delegate
+        guard let id = DataScreen.idMoeda else { return }
         InfoMoedaAPI().requestInfoMoedas(id: id) { (dadoRetorno) in
             let dado = dadoRetorno[0]
             self.setValues(dado)
-            self.buttonFavorito = self.botao()
+            DataScreen.buttonFavorito = self.botao()
         }
     }
     private func setValues(_ dado: MoedaInfoElement) {
@@ -77,20 +87,20 @@ public class CoinDetalheUIView: UIView {
         // Setado mês, não consta ano na struct
     }
     @objc func acaoFavoritar() {
-        guard let id = self.idMoeda else { return }
-        if let action = self.actionFavorita {
+        guard let id = DataScreen.idMoeda else { return }
+        if let action = DataScreen.actionFavorita {
             action()
         } else {
-            self.favoritoDelegate?.favoritar(id, self.seFavorito)
-            self.seFavorito = !self.seFavorito
+            DataScreen.favoritoDelegate?.favoritar(id, DataScreen.seFavorito)
+            DataScreen.seFavorito = !DataScreen.seFavorito
             setTitleRuntime()
         }
     }
     @IBAction func bttnVoltar(_ sender: UIButton) {
-        if let actionReturn = self.actionVoltar {
+        if let actionReturn = DataScreen.actionVoltar {
             actionReturn()
         } else {
-            self.favoritoDelegate?.voltar()
+            DataScreen.favoritoDelegate?.voltar()
         }
     }
     
